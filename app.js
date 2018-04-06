@@ -1,8 +1,6 @@
 const express = require('express');
 const app = express();
-const router = express.Router();
 const reload = require('reload');
-const http = require('http');
 const fs = require('fs');
 const clearRequire = require('clear-require');
 
@@ -24,18 +22,14 @@ function arrayFromJson(arr) {
 app.get('/', (req, res) => {
   var file = require(app.get('dbfile'));
     res.render('index', {
-      title: 'ReaderX Dashboard',
+      title: 'Dashboard',
       cards: arrayFromJson(file)
     });
 });
 
-
-// var server = http.createServer(app);
-
 reloadServer = reload(app);
-console.log('Watching ' + app.get('dbfile'));
 fs.watchFile(app.get('dbfile'), function (f, curr, prev) {
-  console.log('New changes => Reloading server');
+  console.log('Detected changes in ' + app.get('dbfile') + ' => Reloading');
   clearRequire(app.get('dbfile'));
   reloadServer.reload();
 });
