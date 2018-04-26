@@ -48,7 +48,7 @@ function save(key, text, color, callbackURL) {
   file[key] = value
   fs.writeFile(fileName, JSON.stringify(file, null, 2), function (err) {
     if (err) return console.log(err);
-    console.log('Saved ' + key + ' = ' + value + ' to ' + fileName);
+    console.log('Saved ' + key + ' = ' + value.text + ' to ' + fileName);
   });
 }
 

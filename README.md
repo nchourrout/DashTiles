@@ -3,6 +3,7 @@ Simple express/bootstrap parser and dashboard
 
 ## Parser
 * Parses content from webpages and APIs and saves it to `db.json`
+* Ability to set a background color and a click url (Optional)
 * Example usage in `parser.js`
 
 ```javascript
