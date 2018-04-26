@@ -1,8 +1,9 @@
 <div class="col-m-1">
   <div class="card m-1 box-shadow bg-secondary text-center" style="height: 15em; width: 15em;">
-    <div class="card-body">
+    <div class="card-body" style="background: <%= card.value.color %>;<% if (card.value.url) { %>;cursor: pointer;<%}%>"
+      onclick="location.href='<%= card.value.url %>'">
       <h4 class="card-title text-dark"><%= card.title %></h4>
-      <h2 class="card-title text-light w-100" style="position: absolute;top: 50%; left:50%;transform: translate(-50%,-50%);"><%= card.value %></h2>
+      <h2 class="card-title text-light w-100" style="position: absolute;top: 50%; left:50%;transform: translate(-50%,-50%);"><%= card.value.text %></h2>
     </div>
   </div>
 </div>
