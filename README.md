@@ -45,7 +45,7 @@ parser.schedule(5, () => { // Every 5 minutes
 ```
 
 ## Dashboard
-* The dashboard can be used independently from the parser.
-* The server and browser will reload if changes are detected in `db.json` file.
+* The dashboard can be used independently.
+* The server and browser will reload if changes are detected in `db.json`
 * Output of `localhost:3000` after running `node app.js`:
 ![Two-card example](demo_grid.png)

@@ -55,3 +55,4 @@ function save(key, text, color, callbackURL) {
 module.exports.parse = parse;
 module.exports.req = req;
 module.exports.schedule = schedule;
+module.exports.save = save;
