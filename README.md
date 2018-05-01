@@ -31,8 +31,7 @@ parser.schedule(5, () => { // Every 5 minutes
 })
 ```
 
-* Run `node parser.js`
-* Resulting JSON
+Resulting JSON after running `node parser.js`
 
 ```javascript
 {
