@@ -2,13 +2,11 @@
 
 <body class="bg-dark">
   <main role="main">
-      <div class="card-deck-wrapper container">
-        <div class="row">
-          <% cards.forEach((card) => { %>
-            <%include card %>
-            <% }) %>
-          </div>
-        </div>
+    <div class="row container">
+      <% cards.forEach(card => { %>
+        <%include card %>
+        <% }) %>
+      </div>
     </main>
 
     <% include footer %>

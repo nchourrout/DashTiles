@@ -13,5 +13,5 @@ parser.schedule(5, () => { // Every 5 minutes
   let weatherAPIKey = 'YOUR_API_KEY_HERE';
   // Temperature
   var options = {url: 'http://api.openweathermap.org/data/2.5/weather?zip=94105,us&appid=' + weatherAPIKey};
-  parser.req('Weather', options, getTempF, '#FE5F55', 'https://openweathermap.org/city/5391959');
+  parser.req('Weather', options, getTempF, '#FE5F55', 'https://openweathermap.org/city/5391959', '_blank');
 })
