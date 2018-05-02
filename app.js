@@ -10,17 +10,6 @@ app.set('views', './views');
 app.set('view engine', 'ejs');
 app.set('port', 3000);
 app.set('dbfile', './db/db.json');
-
-function arrayFromJson(arr) {
-  var res = [];
-  for (var key in arr) {
-    if (arr.hasOwnProperty(key)) {
-      res.push({title: key, value: arr[key]});
-    }
-  }
-  return res;
-}
-
 app.use(favicon('favicon.ico'));
 
 // CORS proxy: http://host/http://url.com/ab => http://url.com/ab
@@ -36,7 +25,7 @@ app.get('', (req, res) => {
     });
 });
 
-// Watch for changes in dbfile and reload accordingly
+// Reload if db file changes
 reloadServer = reload(app);
 fs.watchFile(app.get('dbfile'), (f, curr, prev) => {
   console.log('Detected changes in ' + app.get('dbfile') + ' => Reloading');
@@ -45,5 +34,9 @@ fs.watchFile(app.get('dbfile'), (f, curr, prev) => {
 });
 
 app.listen(app.get('port'), () => {
-  console.log('Express server listening on port ' + app.get('port'));
+  console.log('Server listening on port ' + app.get('port'));
 });
+
+function arrayFromJson(arr) {
+  return Object.keys(arr).map(key => ({title: key, value: arr[key]}))
+}
