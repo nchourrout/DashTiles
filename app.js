@@ -12,7 +12,7 @@ app.set('port', 3000);
 app.set('dbfile', './db/db.json');
 app.use(favicon('favicon.ico'));
 
-// CORS proxy: http://host/http://url.com/ab => http://url.com/ab
+// CORS proxy: http://host/proxy/http://url.com/ab => http://url.com/ab
 app.all('/proxy/*', (req, res) => {
   req.pipe(request(req.params[0])).pipe(res);
 });
@@ -26,11 +26,10 @@ app.get('', (req, res) => {
 });
 
 // Reload if db file changes
-reloadServer = reload(app);
-fs.watchFile(app.get('dbfile'), (f, curr, prev) => {
-  console.log('Detected changes in ' + app.get('dbfile') + ' => Reloading');
+fs.watchFile(app.get('dbfile'), () => {
+  console.log(app.get('dbfile') + ' changed => Reloading');
   clearRequire(app.get('dbfile'));
-  reloadServer.reload();
+  reload(app).reload();
 });
 
 app.listen(app.get('port'), () => {
