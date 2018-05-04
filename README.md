@@ -1,4 +1,4 @@
-# dash
+# DashTiles
 Simple express/bootstrap parser and dashboard
 
 ## Parser

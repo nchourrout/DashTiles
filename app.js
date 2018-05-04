@@ -20,7 +20,7 @@ app.all('/proxy/*', (req, res) => {
 app.get('', (req, res) => {
   var file = require(app.get('dbfile'));
     res.render('index', {
-      title: 'Dash',
+      title: 'DashTiles',
       cards: arrayFromJson(file)
     });
 });
