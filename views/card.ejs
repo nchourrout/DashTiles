@@ -1,6 +1,6 @@
 <div class="col-m-1">
   <div class="card m-1 box-shadow bg-secondary text-center" style="height: 15em; width: 15em;">
-    <div class="card-body" style="background: <%= card.value.color %>;<% if (card.value.url) { %>;cursor: pointer;<%}%>"
+    <div class="card-body" style="background: <%= card.value.color %>;<% if (card.value.url) { %>cursor: pointer;<%}%>"
       onclick="
       <% if (card.value.url)  {
         if (card.value.target == '_none') {
